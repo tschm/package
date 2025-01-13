@@ -25,8 +25,8 @@ def test_repo(repo):
     #assert Path("paper/references.bib") in repo
     #assert Path(".github/workflows/latex.yml")
     assert Path(".github/workflows/pre-commit.yml") in repo
-    assert Path(".github/workflows/marimo.yml") in repo
+    assert Path(".github/workflows/book.yml") in repo
     assert Path(".devcontainer/devcontainer.json") in repo
     assert Path(".devcontainer/startup.sh") in repo
     assert Path(".github/dependabot.yml") in repo
-    assert Path("requirements.txt") in repo
+    assert Path("uv.lock") in repo
