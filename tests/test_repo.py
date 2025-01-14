@@ -1,4 +1,5 @@
 from pathlib import Path
+import os
 
 import pytest
 from copier import run_copy
@@ -27,3 +28,12 @@ def test_repo(repo):
     assert Path(".devcontainer/startup.sh") in repo
     assert Path(".github/dependabot.yml") in repo
     assert Path("uv.lock") in repo
+
+def test_make_install():
+    os.system("make install")
+
+def test_make_test():
+    os.system("make test")
+
+def test_make_help():
+    os.system("make help")
