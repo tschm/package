@@ -26,6 +26,6 @@ jobs:
         shell: bash
         run: |
           # Create venv
-          uv venv --frozen
+          uv venv
           uv pip install copier pytest
           uv run pytest tests
