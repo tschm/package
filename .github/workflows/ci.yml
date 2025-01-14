@@ -48,4 +48,5 @@ jobs:
 
       - name: Run fmt
         run: |
+          ls -all
           make fmt
