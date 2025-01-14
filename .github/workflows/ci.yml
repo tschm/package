@@ -41,3 +41,7 @@ jobs:
         run: |
           make
           make help
+
+      - name: Run install
+        run: |
+          make install
