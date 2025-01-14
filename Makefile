@@ -24,6 +24,6 @@ fmt: venv ## Run autoformatting and linting
 
 
 .PHONY: test
-test: install  ## Run pytests
-	@uv pip install pytest
+test: venv ## Run pytests
+	@uv pip install pytest copier
 	@uv run pytest tests
