@@ -32,7 +32,6 @@ jobs:
           pip install --no-cache-dir copier
           mkdir -p template
           copier copy . template --data-file .github/data.yaml
-          #project_name=maffay --data username=tschm -data repository==http://www.spiegel.de
           cd template
           git init
           # otherwise the pre-commit hooks won't "see" files
@@ -50,7 +49,12 @@ jobs:
       - name: Run fmt
         run: |
           make fmt
+          make clean
 
       - name: Run tests
         run: |
           make test
+
+      - name: Run marimo
+        run: |
+          make marimo
