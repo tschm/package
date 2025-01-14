@@ -36,3 +36,8 @@ jobs:
           git init
           # otherwise the pre-commit hooks won't "see" files
           git add .
+
+      - name: Run help
+        run: |
+          make
+          make help
