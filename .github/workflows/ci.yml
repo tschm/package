@@ -48,6 +48,7 @@ jobs:
 
       - name: Run fmt
         run: |
+          git checkout main
           make fmt
           make clean
 
