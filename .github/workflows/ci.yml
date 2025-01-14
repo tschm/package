@@ -32,7 +32,7 @@ jobs:
           pip install --no-cache-dir copier
           mkdir -p tmp/paper
           copier copy . tmp/package --data project_name=maffay --data username=tschm
-          cd tmp/paper
+          cd tmp/package
           git init
           # otherwise the pre-commit hooks won't "see" files
           git add .
