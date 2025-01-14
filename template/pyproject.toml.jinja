@@ -5,13 +5,19 @@ description = "{{ description }}"
 authors = [{name='{{ username }}', email= '{{ email }}'}]
 readme = "README.md"
 requires-python = ">=3.10"
-dependencies = []
+dependencies = [
+    "numpy>=2.2.1"
+]
 
 [project.urls]
 repository = "{{ repository }}"
 
 [dependency-groups]
-dev = []
+dev = [
+    "pytest",
+    "pytest-cov",
+    "pre-commit
+]
 
 [tool.ruff]
 line-length = 120
