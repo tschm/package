@@ -57,4 +57,4 @@ jobs:
 
       - name: Run marimo
         run: |
-          make marimo
+          uv pip install marimo
