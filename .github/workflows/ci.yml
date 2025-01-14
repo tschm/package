@@ -31,7 +31,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install --no-cache-dir copier
           mkdir -p template
-          copier copy . template --data-file data.yaml
+          copier copy . template --data-file .github/data.yaml
           #project_name=maffay --data username=tschm -data repository==http://www.spiegel.de
           cd template
           git init
