@@ -21,9 +21,6 @@ def test_repo(repo):
     assert Path("Makefile") in repo
     assert Path(".gitignore") in repo
     assert Path("README.md") in repo
-    #assert Path("paper/maffay.tex") in repo
-    #assert Path("paper/references.bib") in repo
-    #assert Path(".github/workflows/latex.yml")
     assert Path(".github/workflows/pre-commit.yml") in repo
     assert Path(".github/workflows/book.yml") in repo
     assert Path(".devcontainer/devcontainer.json") in repo
