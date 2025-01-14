@@ -49,8 +49,7 @@ jobs:
       - name: Run fmt
         run: |
           make fmt
-          # The repo doesn't exist yet, hence we can't do
-          # make clean
+          make clean
 
       - name: Run tests
         run: |
