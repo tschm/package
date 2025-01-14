@@ -48,9 +48,9 @@ jobs:
 
       - name: Run fmt
         run: |
-          git checkout main
           make fmt
-          make clean
+          # The repo doesn't exist yet, hence we can't do
+          # make clean
 
       - name: Run tests
         run: |
