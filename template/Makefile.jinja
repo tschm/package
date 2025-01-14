@@ -23,7 +23,6 @@ fmt: venv ## Run autoformatting and linting
 .PHONY: clean
 clean:  ## Clean up caches and build artifacts
 	@git clean -X -d -f
-	@git branch -v | grep "\[gone\]" | cut -f 3 -d ' ' | xargs git branch -D
 
 
 .PHONY: help
@@ -35,7 +34,7 @@ help:  ## Display this help screen
 .PHONY: marimo
 marimo: install ## Install Marimo
 	@uv pip install marimo
-	@uv run marimo edit notebooks
+	@uv run marimo edit book/marimo
 
 
 .PHONY: test
