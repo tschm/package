@@ -49,4 +49,12 @@ jobs:
       - name: Run fmt
         run: |
           ls -all
+          git status
+          git add .
+          ls -all .github
           make fmt
+
+      - name: Run tests
+        run: |
+          ls -all
+          make test
