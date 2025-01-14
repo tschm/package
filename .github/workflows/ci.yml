@@ -31,7 +31,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install --no-cache-dir copier
           mkdir -p tmp/paper
-          copier copy . tmp/package --data project_name=maffay
+          copier copy . tmp/package --data project_name=maffay username=tschm
           cd tmp/paper
           git init
           # otherwise the pre-commit hooks won't "see" files
@@ -45,3 +45,7 @@ jobs:
       - name: Run install
         run: |
           make install
+
+      - name: Run fmt
+        run: |
+          make fmt
