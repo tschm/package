@@ -33,7 +33,7 @@ jobs:
           mkdir -p template
           copier copy . template --data-file .github/data.yaml
           cd template
-          git init
+          git init -b main
           # otherwise the pre-commit hooks won't "see" files
           git add .
 
