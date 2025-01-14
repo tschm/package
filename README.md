@@ -1,4 +1,4 @@
 # package
 
-This repository each a template for the [cradle](https://github.com/cvxgrp/cradle)
+This repository is a template for the [cradle](https://github.com/cvxgrp/cradle)
 system.
