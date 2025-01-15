@@ -8,7 +8,7 @@ jobs:
   marimo:
     runs-on: "ubuntu-latest"
     steps:
-      - name: Checkout [${{ github.repository }}]
+      - name: Checkout [${% raw %}{{ github.repository }}{% endraw %}]
         uses: actions/checkout@v4
 
       - name: Load .env file
@@ -16,12 +16,12 @@ jobs:
 
       - uses: cvxgrp/.github/actions/uv/marimo@v2.0.3
         with:
-          source_folder: ${{ env.MARIMO_FOLDER }}
+          source_folder: book/marimo
 
   pdoc:
     runs-on: "ubuntu-latest"
     steps:
-      - name: Checkout [${{ github.repository }}]
+      - name: Checkout [${% raw %}{{ github.repository }}{% endraw %}]
         uses: actions/checkout@v4
 
       - uses: cvxgrp/.github/actions/uv/pdoc@v2.0.3
@@ -32,7 +32,7 @@ jobs:
   test:
     runs-on: "ubuntu-latest"
     steps:
-      - name: Checkout [${{ github.repository }}]
+      - name: Checkout [${% raw %}{{ github.repository }}{% endraw %}]
         uses: actions/checkout@v4
 
       - uses: cvxgrp/.github/actions/uv/coverage@v2.0.3
@@ -43,7 +43,7 @@ jobs:
   jupyter:
     runs-on: "ubuntu-latest"
     steps:
-      - name: Checkout [${{ github.repository }}]
+      - name: Checkout [${% raw %}{{ github.repository }}{% endraw %}]
         uses: actions/checkout@v4
 
       - uses: cvxgrp/.github/actions/uv/jupyter@v2.0.3
@@ -56,7 +56,7 @@ jobs:
       contents: write
 
     steps:
-      - name: Checkout [${{ github.repository }}]
+      - name: Checkout [${% raw %}{{ github.repository }}{% endraw %}]
         uses: actions/checkout@v4
 
       - uses: cvxgrp/.github/actions/book@v2.0.3
