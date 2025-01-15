@@ -21,17 +21,15 @@ It features include
 This is serving as a feeder into the [cradle](https://github.com/cvxgrp/cradle)
 system only.
 
-## Code quality
-
-To format all code use
+## Development Commands
 
 ```bash
-make fmt
+make fmt     # Install pre-commit hooks and run them on all files
 ```
 
 ## License
 
-This project is licensed under the Apache License 2.0 - see
+This project is licensed under the MIT license - see
 the LICENSE file for details.
 
 ## Contributing
