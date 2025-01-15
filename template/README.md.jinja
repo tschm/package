@@ -5,33 +5,44 @@ This repository has been created using the
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/{{ username }}/{{ project_name }})
 
-## Dependency Management
+## Getting Started
 
-The project relies on [uv](https://github.com/astral-sh/uv) for
-dependency management. Performing
+1. **Set Up Environment**
+
+   ```bash
+   make install
+   ```
+
+   This installs/updates [uv](https://github.com/astral-sh/uv),
+   creates your virtual environment and installs dependencies.
+
+    For adding or removing packages:
+
+    ```bash
+    uv add/remove requests  # for main dependencies
+    uv add/remove requests --dev  # for dev dependencies
+    ```
+
+2. **Configure Pre-commit Hooks**
+
+   ```bash
+   make fmt
+   ```
+
+   Installs hooks to maintain code quality and formatting.
+
+3. **Update Project Info**
+
+   - Edit `pyproject.toml` to update authors and email addresses
+   - Configure GitHub Pages (branch: gh-pages) in repository settings
+
+
+## Development Commands
 
 ```bash
-make install
+make tests   # Run test suite
+make marimo  # Start Marimo notebooks
 ```
-
-will install/update uv (and uvx) and create a first virtual environment as defined
-in [pyproject.toml](pyproject.toml).
-
-To add/remove dependencies (e.g. the popular requests package) is possible via
-
-```bash
-uv add/remove requests
-```
-
-or
-
-```bash
-uv add/remove requests --dev
-```
-
-for dev dependency. We highly recommend [uv's documentation](https://docs.astral.sh/uv/).
-
-##
 
 ## License
 
