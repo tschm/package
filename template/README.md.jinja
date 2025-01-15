@@ -4,3 +4,35 @@ This repository has been created using the
 [cradle](https://github.com/cvxgrp/cradle) cli.
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/{{ username }}/{{ project_name }})
+
+## Dependency Management
+
+The project relies on [uv](https://github.com/astral-sh/uv) for
+dependency management. Performing
+
+```bash
+make install
+```
+
+will install/update uv (and uvx) and create a first virtual environment as defined
+in [pyproject.toml](pyproject.toml).
+
+To add/remove dependencies (e.g. the popular requests package) is possible via
+
+```bash
+uv add/remove requests
+```
+
+or
+
+```bash
+uv add/remove requests --dev
+```
+
+for dev dependency. We highly recommend [uv's documentation](https://docs.astral.sh/uv/).
+
+##
+
+## License
+
+The project is licensed under the MIT License - see the LICENSE file for details

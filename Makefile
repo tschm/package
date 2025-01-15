@@ -21,9 +21,3 @@ fmt: venv ## Run autoformatting and linting
 	@uv pip install pre-commit
 	@uv run pre-commit install
 	@uv run pre-commit run --all-files
-
-
-.PHONY: test
-test: venv ## Run pytests
-	@uv pip install pytest copier
-	@uv run pytest tests
