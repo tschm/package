@@ -43,7 +43,7 @@ jobs:
 
       - uses: cvxgrp/.github/actions/uv/coverage@v2.0.3
         with:
-          tests-folder: ${{ env.TESTS_FOLDER }}
+          tests-folder: src/tests
           source-folder: ${{ env.SOURCE_FOLDER }}
 
   jupyter:
