@@ -6,5 +6,8 @@
   "automerge": true,
   "pre-commit": {
     "enabled": true
+  },
+  "lockFileMaintenance": {
+    "enabled": true
   }
 }
