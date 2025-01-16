@@ -1,7 +1,8 @@
 # package
 
-This repository is a template for the [cradle](https://github.com/cvxgrp/cradle)
-system.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.txt)
+[![CI](https://github.com/tschm/package/actions/workflows/ci.yml/badge.svg)](https://github.com/tschm/package/actions/workflows/ci.yml)
+[![Created for Cradle](https://img.shields.io/badge/Created%20with-Cradle-blue?style=flat-square)](https://github.com/cvxgrp/cradle)
 
 The package template is most useful when the final
 goal is the release of software to a registry, e.g. pypi.
@@ -16,21 +17,11 @@ It features include
 * Documentation generation with pdoc
 * Support of a DevContainer
 
-## Usage
-
-This is serving as a feeder into the [cradle](https://github.com/cvxgrp/cradle)
-system only.
-
 ## Development Commands
 
 ```bash
 make fmt     # Install pre-commit hooks and run them on all files
 ```
-
-## License
-
-This project is licensed under the MIT license - see
-the LICENSE file for details.
 
 ## Contributing
 
