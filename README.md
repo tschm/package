@@ -17,6 +17,18 @@ It features include
 * Documentation generation with pdoc
 * Support of a DevContainer
 
+## Table of Contents
+
+* [Usage](#usage)
+* [Development Commands](#development-commands)
+* [Contributing](#contributing)
+* [Contact](#contact)
+
+## Usage
+
+This is serving as a feeder into the [cradle](https://github.com/cvxgrp/cradle)
+system only. 
+
 ## Development Commands
 
 ```bash
