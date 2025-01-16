@@ -11,9 +11,6 @@ jobs:
       - name: Checkout [${% raw %}{{ github.repository }}{% endraw %}]
         uses: actions/checkout@v4
 
-      - name: Load .env file
-        uses: xom9ikk/dotenv@v2  # Dedicated action for loading .env files
-
       - uses: cvxgrp/.github/actions/uv/marimo@v2.0.3
         with:
           source_folder: book/marimo
