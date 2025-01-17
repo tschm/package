@@ -3,6 +3,10 @@ name: pre-commit
 on:
   push:
 
+permissions:
+  checks: write
+  contents: read
+
 jobs:
   test:
     runs-on: ubuntu-latest
