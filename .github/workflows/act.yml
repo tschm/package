@@ -51,3 +51,17 @@ jobs:
           git init -b main
           git add .
           git commit -m "Initial commit"
+
+      - name: Run the pre-commit flow
+        id: flow_pre_commit
+        shell: bash
+        working-directory: template
+        run: |
+          act -W .github/workflows/pre-commit.yml -P ubuntu-latest=ghcr.io/catthehacker/ubuntu:act-latest
+
+      - name: Run the ci flow
+        id: flow_ci
+        shell: bash
+        working-directory: template
+        run: |
+          act -W .github/workflows/ci.yml -P ubuntu-latest=ghcr.io/catthehacker/ubuntu:act-latest
