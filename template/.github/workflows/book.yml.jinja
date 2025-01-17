@@ -3,12 +3,13 @@ name: "book"
 on:
 - push
 
-permissions:
-  checks: write
-  contents: read
-
 jobs:
+
   marimo:
+    permissions:
+      checks: write
+      contents: read
+
     runs-on: "ubuntu-latest"
     steps:
       - name: Checkout [${% raw %}{{ github.repository }}{% endraw %}]
@@ -19,6 +20,10 @@ jobs:
           source_folder: book/marimo
 
   pdoc:
+    permissions:
+      checks: write
+      contents: read
+
     runs-on: "ubuntu-latest"
     steps:
       - name: Checkout [${% raw %}{{ github.repository }}{% endraw %}]
@@ -41,6 +46,10 @@ jobs:
           source-folder: src/{{ project_name }}
 
   jupyter:
+    permissions:
+      checks: write
+      contents: read
+
     runs-on: "ubuntu-latest"
     steps:
       - name: Checkout [${% raw %}{{ github.repository }}{% endraw %}]
