@@ -20,7 +20,7 @@ jobs:
           tests-folder: src/tests
 
       - name: Coveralls GitHub Action
-        if: ${{ env.ACT != 'true' }}  # Skip if running with 'act'
+        if: ${% raw %}{{ env.ACT != 'true' }}{% endraw %}  # Skip if running with 'act'
         uses: coverallsapp/github-action@v2
         with:
           files: artifacts/tests/coverage/coverage.info
