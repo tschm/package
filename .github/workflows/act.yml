@@ -1,0 +1,58 @@
+name: Test Template Workflows
+
+on:
+  push:
+
+jobs:
+  test-template-workflows:
+    strategy:
+      matrix:
+        python-version: [ '3.12' ]
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout [${{ github.repository }}]
+        uses: actions/checkout@v4
+
+      - name: Launch the cradle
+        uses: cvxgrp/cradle/actions/cradle@main
+        with:
+          python-version: '3.12'
+
+      - name: Run copier
+        working-directory: .
+        shell: bash
+        run: |
+          copier copy . template --data-file .github/data.yaml
+
+      - name: Prepare the repo
+        working-directory: template
+        shell: bash
+        run: |
+          # otherwise the pre-commit hooks won't "see" files
+          # also act needs to have the commit in place
+          git init -b main
+          git add .
+          git commit -m "Initial commit"
+
+      - name: Test ci flow
+        uses: cvxgrp/cradle/actions/flow@main
+        with:
+          working-directory: template
+          workflow: ci.yml
+
+      #- name: Run the pre-commit flow
+      #  id: flow_pre_commit
+      #  shell: bash
+      #  working-directory: template
+      #  run: |
+      #    act -W .github/workflows/pre-commit.yml -P ubuntu-latest=ghcr.io/catthehacker/ubuntu:act-latest
+
+
+      #- name: Run the book flow
+      #  id: flow_book
+      #  shell: bash
+      #  working-directory: template
+      #  run: |
+      #    act -W .github/workflows/book.yml -P ubuntu-latest=ghcr.io/catthehacker/ubuntu:act-latest

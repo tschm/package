@@ -5,23 +5,32 @@ on:
 
 
 jobs:
+
   marimo:
+    permissions:
+      checks: write
+      contents: write
+
     runs-on: "ubuntu-latest"
     steps:
       - name: Checkout [${% raw %}{{ github.repository }}{% endraw %}]
         uses: actions/checkout@v4
 
-      - uses: cvxgrp/.github/actions/uv/marimo@v2.0.3
+      - uses: cvxgrp/.github/actions/uv/marimo@v2.0.5
         with:
           source_folder: book/marimo
 
   pdoc:
+    permissions:
+      checks: write
+      contents: write
+
     runs-on: "ubuntu-latest"
     steps:
       - name: Checkout [${% raw %}{{ github.repository }}{% endraw %}]
         uses: actions/checkout@v4
 
-      - uses: cvxgrp/.github/actions/uv/pdoc@v2.0.3
+      - uses: cvxgrp/.github/actions/uv/pdoc@v2.0.5
         with:
           source-folder: src/{{ project_name }}
 
@@ -32,18 +41,22 @@ jobs:
       - name: Checkout [${% raw %}{{ github.repository }}{% endraw %}]
         uses: actions/checkout@v4
 
-      - uses: cvxgrp/.github/actions/uv/coverage@v2.0.3
+      - uses: cvxgrp/.github/actions/uv/coverage@v2.0.5
         with:
           tests-folder: src/tests
           source-folder: src/{{ project_name }}
 
   jupyter:
+    permissions:
+      checks: write
+      contents: write
+
     runs-on: "ubuntu-latest"
     steps:
       - name: Checkout [${% raw %}{{ github.repository }}{% endraw %}]
         uses: actions/checkout@v4
 
-      - uses: cvxgrp/.github/actions/uv/jupyter@v2.0.3
+      - uses: cvxgrp/.github/actions/uv/jupyter@v2.0.5
 
   book:
     runs-on: "ubuntu-latest"
@@ -56,4 +69,4 @@ jobs:
       - name: Checkout [${% raw %}{{ github.repository }}{% endraw %}]
         uses: actions/checkout@v4
 
-      - uses: cvxgrp/.github/actions/book@v2.0.3
+      - uses: cvxgrp/.github/actions/book@v2.0.5

@@ -3,14 +3,22 @@ name: pre-commit
 on:
   push:
 
+permissions:
+  checks: write
+  contents: read
+
 jobs:
   test:
+    permissions:
+      checks: write
+      contents: write
+
     runs-on: ubuntu-latest
     steps:
       - name: Checkout [${% raw %}{{ github.repository }}{% endraw %}]
         uses: actions/checkout@v4
 
-      - uses: cvxgrp/.github/actions/uv/coverage@v2.0.3
+      - uses: cvxgrp/.github/actions/uv/coverage@v2.0.5
         with:
           source-folder: src/{{ project_name }}
           tests-folder: src/tests
@@ -27,7 +35,7 @@ jobs:
       - name: Checkout [${% raw %}{{ github.repository }}{% endraw %}]
         uses: actions/checkout@v4
 
-      - uses: cvxgrp/.github/actions/uv/deptry@v2.0.3
+      - uses: cvxgrp/.github/actions/uv/deptry@v2.0.5
         with:
           source-folder: src/{{ project_name }}
 
