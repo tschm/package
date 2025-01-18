@@ -61,4 +61,6 @@ jobs:
       - name: Checkout [${% raw %}{{ github.repository }}{% endraw %}]
         uses: actions/checkout@v4
 
-      - uses: cvxgrp/.github/actions/book@v2.0.6
+      - name: Upload the book
+        if: ${% raw %}{{ env.ACT != 'true' }}{% endraw %}  # Skip if running with 'act'
+        uses: cvxgrp/.github/actions/book@v2.0.6
