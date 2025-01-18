@@ -9,21 +9,18 @@ permissions:
 
 jobs:
   test:
-    permissions:
-      checks: write
-      contents: write
-
     runs-on: ubuntu-latest
     steps:
       - name: Checkout [${% raw %}{{ github.repository }}{% endraw %}]
         uses: actions/checkout@v4
 
-      - uses: cvxgrp/.github/actions/uv/coverage@v2.0.5
+      - uses: cvxgrp/.github/actions/uv/coverage@v2.0.6
         with:
           source-folder: src/{{ project_name }}
           tests-folder: src/tests
 
       - name: Coveralls GitHub Action
+        if: ${{ env.ACT != 'true' }}  # Skip if running with 'act'
         uses: coverallsapp/github-action@v2
         with:
           files: artifacts/tests/coverage/coverage.info
@@ -35,7 +32,7 @@ jobs:
       - name: Checkout [${% raw %}{{ github.repository }}{% endraw %}]
         uses: actions/checkout@v4
 
-      - uses: cvxgrp/.github/actions/uv/deptry@v2.0.5
+      - uses: cvxgrp/.github/actions/uv/deptry@v2.0.6
         with:
           source-folder: src/{{ project_name }}
 
