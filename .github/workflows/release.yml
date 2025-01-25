@@ -1,26 +1,44 @@
 name: Bump version
 
 on:
-  push:
-    branches:
-      - main
+  workflow_run:
+    workflows: ["CI"] # Name of the test workflow
+    types:
+      - completed
 
 permissions:
   contents: write
 
 jobs:
   build:
+    if: >
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.head_branch == 'main'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: Bump version and push tag
         id: tag_version
         uses: mathieudutour/github-tag-action@v6.2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate release body
+        id: release_body
+        run: |
+          # Use git log with more flexible revision specification
+          echo "## Commits" > release_body.md
+          git log --pretty=format:"- %s" $(git describe --tags --abbrev=0 HEAD^)..HEAD >> release_body.md
+          echo "" >> release_body.md
+          echo "## Contributors" >> release_body.md
+          git log --pretty=format:"%an" $(git describe --tags --abbrev=0 HEAD^)..HEAD | sort | uniq >> release_body.md
+
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
           tag: ${{ steps.tag_version.outputs.new_tag }}
           name: Release ${{ steps.tag_version.outputs.new_tag }}
-          body: ${{ steps.tag_version.outputs.changelog }}
+          bodyFile: release_body.md
