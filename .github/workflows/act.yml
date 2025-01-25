@@ -42,14 +42,14 @@ jobs:
           working-directory: template
           workflow: ci.yml
 
-      - name: Test book flow
-        uses: cvxgrp/cradle/actions/flow@main
-        with:
-          working-directory: template
-          workflow: book.yml
-
       - name: Test pre-commit flow
         uses: cvxgrp/cradle/actions/flow@main
         with:
           working-directory: template
           workflow: pre-commit.yml
+
+      - name: Test book flow
+        uses: cvxgrp/cradle/actions/flow@main
+        with:
+          working-directory: template
+          workflow: book.yml
