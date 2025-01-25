@@ -1,4 +1,4 @@
-# package - q-cradle template
+# package --- q-cradle template
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.txt)
 [![CI](https://github.com/tschm/package/actions/workflows/act.yml/badge.svg)](https://github.com/tschm/package/actions/workflows/act.yml)
