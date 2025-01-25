@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.txt)
 [![CI](https://github.com/tschm/package/actions/workflows/act.yml/badge.svg)](https://github.com/tschm/package/actions/workflows/act.yml)
-[![Created for q-cradle](https://img.shields.io/badge/Created%20for-qCradle-blue?style=flat-square)](https://github.com/cvxgrp/cradle)
+[![Created for q-cradle](https://img.shields.io/badge/Created%20for-q-cradle-blue?style=flat-square)](https://github.com/cvxgrp/cradle)
 
 The package template is most useful when the final
 goal is the release of software to a registry, e.g. pypi.
