@@ -33,5 +33,12 @@ build-backend = "hatchling.build"
 [tool.hatch.build.targets.wheel]
 packages = ["src/{{project_name}}"]
 
+[tool.hatch.build]
+include = [
+    "LICENSE",    # Ensure the LICENSE file is included in your package
+    "README.md",
+    "src/{{ project_name }}"
+]
+
 [tool.bandit]
 exclude_dirs = ["tests"]
