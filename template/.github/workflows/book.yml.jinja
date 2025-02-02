@@ -13,20 +13,20 @@ jobs:
   marimo:
     runs-on: "ubuntu-latest"
     steps:
-      - name: Checkout [${% raw %}{{ github.repository }}{% endraw %}]
-        uses: actions/checkout@v4
+      - name: "Build the virtual environment"
+        uses: cvxgrp/.github/actions/uv/environment@v2.1.0
 
-      - uses: cvxgrp/.github/actions/uv/marimo@main
+      - uses: cvxgrp/.github/actions/marimo@main
         with:
           source_folder: book/marimo
 
   pdoc:
     runs-on: "ubuntu-latest"
     steps:
-      - name: Checkout [${% raw %}{{ github.repository }}{% endraw %}]
-        uses: actions/checkout@v4
+      - name: "Build the virtual environment"
+        uses: cvxgrp/.github/actions/uv/environment@v2.1.0
 
-      - uses: cvxgrp/.github/actions/uv/pdoc@main
+      - uses: cvxgrp/.github/actions/pdoc@main
         with:
           source-folder: src/{{ project_name }}
 
@@ -34,10 +34,10 @@ jobs:
   test:
     runs-on: "ubuntu-latest"
     steps:
-      - name: Checkout [${% raw %}{{ github.repository }}{% endraw %}]
-        uses: actions/checkout@v4
+      - name: "Build the virtual environment"
+        uses: cvxgrp/.github/actions/uv/environment@v2.1.0
 
-      - uses: cvxgrp/.github/actions/uv/coverage@main
+      - uses: cvxgrp/.github/actions/coverage@main
         with:
           tests-folder: src/tests
           source-folder: src/{{ project_name }}
@@ -45,10 +45,10 @@ jobs:
   jupyter:
     runs-on: "ubuntu-latest"
     steps:
-      - name: Checkout [${% raw %}{{ github.repository }}{% endraw %}]
-        uses: actions/checkout@v4
+      - name: "Build the virtual environment"
+        uses: cvxgrp/.github/actions/uv/environment@v2.1.0
 
-      - uses: cvxgrp/.github/actions/uv/jupyter@main
+      - uses: cvxgrp/.github/actions/jupyter@main
 
   book:
     runs-on: "ubuntu-latest"
