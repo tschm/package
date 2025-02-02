@@ -1,0 +1,24 @@
+name: pre-commit
+
+on:
+  push:
+
+permissions:
+  checks: write
+  contents: read
+
+jobs:
+  deptry:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout [${{ github.repository }}]
+        uses: actions/checkout@v4
+
+      - uses: cvxgrp/.github/actions/deptry@main
+        with:
+          source-folder: src/{{ project_name }}
+
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: cvxgrp/.github/actions/pre-commit@v2.1.0
