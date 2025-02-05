@@ -12,13 +12,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Build the virtual environment"
-        uses: cvxgrp/.github/actions/uv/environment@v2.1.0
+        uses: cvxgrp/.github/actions/uv/environment@v2.1.1
 
-      - uses: cvxgrp/.github/actions/deptry@v2.1.0
+      - uses: cvxgrp/.github/actions/deptry@v2.1.1
         with:
           source-folder: src/{{ project_name }}
 
   pre-commit:
     runs-on: ubuntu-latest
     steps:
-      - uses: cvxgrp/.github/actions/pre-commit@v2.1.0
+      - uses: cvxgrp/.github/actions/pre-commit@v2.1.1
