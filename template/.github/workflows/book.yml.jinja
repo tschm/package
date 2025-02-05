@@ -35,9 +35,9 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - name: "Build the virtual environment"
-        uses: cvxgrp/.github/actions/uv/environment@v2.1.0
+        uses: cvxgrp/.github/actions/uv/environment@v2.1.1
 
-      - uses: cvxgrp/.github/actions/coverage@v2.1.0
+      - uses: cvxgrp/.github/actions/coverage@v2.1.1
         with:
           tests-folder: src/tests
           source-folder: src/{{ project_name }}
@@ -47,9 +47,9 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - name: "Build the virtual environment"
-        uses: cvxgrp/.github/actions/uv/environment@v2.1.0
+        uses: cvxgrp/.github/actions/uv/environment@v2.1.1
 
-      - uses: cvxgrp/.github/actions/jupyter@v2.1.0
+      - uses: cvxgrp/.github/actions/jupyter@v2.1.1
 
   book:
     runs-on: "ubuntu-latest"
@@ -59,9 +59,6 @@ jobs:
       contents: write
 
     steps:
-      - name: Checkout [${% raw %}{{ github.repository }}{% endraw %}]
-        uses: actions/checkout@v4
-
       - name: Upload the book
         if: ${% raw %}{{ env.ACT != 'true' }}{% endraw %}  # Skip if running with 'act'
-        uses: cvxgrp/.github/actions/book@main
+        uses: cvxgrp/.github/actions/book@v2.1.1
