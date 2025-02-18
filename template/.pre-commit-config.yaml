@@ -51,7 +51,7 @@ repos:
     rev: v1.29.7
     hooks:
       - id: typos
-        exclude: ^\.gitignore$
+        exclude: ^(\.gitignore|\.copier-answers.yml)$
 
   - repo: https://github.com/PyCQA/bandit
     rev: 1.8.3
