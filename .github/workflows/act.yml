@@ -24,7 +24,7 @@ jobs:
         working-directory: .
         shell: bash
         run: |
-          copier copy . template --data-file .github/resources/data.yaml
+          copier copy . template --data-file .github/resources/data.yaml --overwrite
 
       - name: Prepare the repo
         working-directory: template
@@ -35,7 +35,6 @@ jobs:
           git init -b main
           git add .
           git commit -m "Initial commit"
-          git fetch origin 2>/dev/null || true
 
       - name: Test ci flow
         uses: tschm/cradle/actions/flow@main
