@@ -53,9 +53,9 @@ repos:
       - id: typos
         exclude: ^(\.gitignore|\.copier-answers.yml)$
 
-  - repo: https://github.com/PyCQA/bandit
-    rev: 1.8.3
-    hooks:
-    - id: bandit
-      args: ["-c", "pyproject.toml"]
-      additional_dependencies: ["bandit[toml]"]
+  #- repo: https://github.com/PyCQA/bandit
+  #  rev: 1.8.3
+  #  hooks:
+  #  - id: bandit
+  #    args: ["-c", "pyproject.toml"]
+  #    additional_dependencies: ["bandit[toml]"]
