@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: Checkout [${{ github.repository }}]
         uses: actions/checkout@v4
+        with:
+          fetch-depth: '0'
 
       - name: Launch the cradle
         uses: tschm/cradle/actions/cradle@main
