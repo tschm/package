@@ -14,6 +14,7 @@ repos:
         args: [ --fix, --exit-non-zero-on-fix ]
       # Run the formatter
       - id: ruff-format
+        exclude: src/tests
 
   - repo: https://github.com/igorshubovych/markdownlint-cli
     rev: v0.44.0
