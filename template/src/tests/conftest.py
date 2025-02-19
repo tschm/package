@@ -13,6 +13,6 @@ def resource_fixture():
     return Path(__file__).parent / "resources"
 
 
-@pytest.fixture(name="root_dir")
+@pytest.fixture(scope="session", name="root_dir")
 def root_fixture(resource_dir: Path) -> Path:
     return Path(__file__).parent.parent.parent
