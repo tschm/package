@@ -26,10 +26,10 @@ jobs:
         working-directory: .
         shell: bash
         run: |
-          copier copy . tmp --data-file .github/resources/data.yaml # --overwrite
+          copier copy . template --data-file .github/resources/data.yaml --skip
 
       - name: Prepare the repo
-        working-directory: tmp
+        working-directory: template
         shell: bash
         run: |
           # otherwise the pre-commit hooks won't "see" files
@@ -41,17 +41,17 @@ jobs:
       - name: Test ci flow
         uses: tschm/cradle/actions/flow@main
         with:
-          working-directory: tmp
+          working-directory: template
           workflow: ci.yml
 
       - name: Test pre-commit flow
         uses: tschm/cradle/actions/flow@main
         with:
-          working-directory: tmp
+          working-directory: template
           workflow: pre-commit.yml
 
       - name: Test book flow
         uses: tschm/cradle/actions/flow@main
         with:
-          working-directory: tmp
+          working-directory: template
           workflow: book.yml
