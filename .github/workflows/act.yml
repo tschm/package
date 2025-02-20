@@ -26,7 +26,7 @@ jobs:
         working-directory: .
         shell: bash
         run: |
-          copier copy . template --data-file .github/resources/data.yaml --skip
+          copier copy --vcs-ref HEAD . template --data-file .github/resources/data.yaml --skip
 
       - name: Check template
         working-directory: template
