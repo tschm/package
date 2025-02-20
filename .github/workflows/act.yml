@@ -28,6 +28,12 @@ jobs:
         run: |
           copier copy . template --data-file .github/resources/data.yaml --skip
 
+      - name: Check template
+        working-directory: template
+        shell: bash
+        run : |
+          cat src/tests/conftest.py
+
       - name: Prepare the repo
         working-directory: template
         shell: bash
