@@ -12,44 +12,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout [${{ github.repository }}]
-        uses: actions/checkout@v4
-
       - name: Launch the cradle
-        uses: cvxgrp/cradle/actions/cradle@main
+        uses: tschm/cradle/actions/cradle@main
         with:
           python-version: '3.12'
-
-      - name: Run copier
-        working-directory: .
-        shell: bash
-        run: |
-          copier copy . template --data-file .github/resources/data.yaml
-
-      - name: Prepare the repo
-        working-directory: template
-        shell: bash
-        run: |
-          # otherwise the pre-commit hooks won't "see" files
-          # also act needs to have the commit in place
-          git init -b main
-          git add .
-          git commit -m "Initial commit"
+          destination-path: 'template'
 
       - name: Test ci flow
-        uses: cvxgrp/cradle/actions/flow@main
+        uses: tschm/cradle/actions/flow@main
         with:
           working-directory: template
           workflow: ci.yml
 
       - name: Test pre-commit flow
-        uses: cvxgrp/cradle/actions/flow@main
+        uses: tschm/cradle/actions/flow@main
         with:
           working-directory: template
           workflow: pre-commit.yml
 
       - name: Test book flow
-        uses: cvxgrp/cradle/actions/flow@main
+        uses: tschm/cradle/actions/flow@main
         with:
           working-directory: template
           workflow: book.yml
