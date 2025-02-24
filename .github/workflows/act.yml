@@ -13,25 +13,25 @@ jobs:
 
     steps:
       - name: Launch the cradle
-        uses: tschm/cradle/actions/cradle@2.2.5
+        uses: tschm/cradle/actions/cradle@main
         with:
           python-version: '3.12'
           destination-path: 'template'
 
       - name: Test ci flow
-        uses: tschm/cradle/actions/flow@2.2.5
+        uses: tschm/cradle/actions/flow@main
         with:
           working-directory: template
           workflow: ci.yml
 
       - name: Test pre-commit flow
-        uses: tschm/cradle/actions/flow@2.2.5
+        uses: tschm/cradle/actions/flow@main
         with:
           working-directory: template
           workflow: pre-commit.yml
 
       - name: Test book flow
-        uses: tschm/cradle/actions/flow@2.2.5
+        uses: tschm/cradle/actions/flow@main
         with:
           working-directory: template
           workflow: book.yml
