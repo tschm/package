@@ -49,7 +49,7 @@ jobs:
       - name: "Build the virtual environment"
         uses: cvxgrp/.github/actions/environment@v2.2.5
 
-      - uses: cvxgrp/.github/actions/jupyter@v2.2.5
+      - uses: ./.github/actions/jupyter
 
   book:
     runs-on: "ubuntu-latest"
