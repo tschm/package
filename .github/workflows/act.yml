@@ -5,10 +5,6 @@ on:
 
 jobs:
   test-template-workflows:
-    strategy:
-      matrix:
-        python-version: [ '3.12' ]
-
     runs-on: ubuntu-latest
 
     steps:
