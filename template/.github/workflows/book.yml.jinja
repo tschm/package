@@ -37,7 +37,7 @@ jobs:
       - name: "Build the virtual environment"
         uses: cvxgrp/.github/actions/environment@v2.2.5
 
-      - uses: cvxgrp/.github/actions/coverage@v2.2.5
+      - uses: ./.github/actions/coverage
         with:
           tests-folder: src/tests
           source-folder: src/{{ project_name }}
