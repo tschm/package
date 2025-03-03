@@ -16,22 +16,18 @@ jobs:
         uses: tschm/cradle/actions/cradle@main
         with:
           python-version: '3.12'
-          destination-path: 'template'
 
       - name: Test ci flow
         uses: tschm/cradle/actions/flow@main
         with:
-          working-directory: template
           workflow: ci.yml
 
       - name: Test pre-commit flow
         uses: tschm/cradle/actions/flow@main
         with:
-          working-directory: template
           workflow: pre-commit.yml
 
       - name: Test book flow
         uses: tschm/cradle/actions/flow@main
         with:
-          working-directory: template
           workflow: book.yml
