@@ -13,20 +13,26 @@ jobs:
   marimo:
     runs-on: "ubuntu-latest"
     steps:
-      - name: "Build the virtual environment"
-        uses: cvxgrp/.github/actions/environment@v2.2.5
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-      - uses: cvxgrp/.github/actions/marimo@v2.2.5
+      - name: "Build the virtual environment"
+        uses: ./.github/actions/environment
+
+      - uses: ./.github/actions/marimo
         with:
           source_folder: book/marimo
 
   pdoc:
     runs-on: "ubuntu-latest"
     steps:
-      - name: "Build the virtual environment"
-        uses: cvxgrp/.github/actions/environment@v2.2.5
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-      - uses: cvxgrp/.github/actions/pdoc@v2.2.5
+      - name: "Build the virtual environment"
+        uses: ./.github/actions/environment
+
+      - uses: ./.github/actions/pdoc
         with:
           source-folder: src/{{ project_name }}
 
@@ -34,10 +40,13 @@ jobs:
   test:
     runs-on: "ubuntu-latest"
     steps:
-      - name: "Build the virtual environment"
-        uses: cvxgrp/.github/actions/environment@v2.2.5
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-      - uses: cvxgrp/.github/actions/coverage@v2.2.5
+      - name: "Build the virtual environment"
+        uses: ./.github/actions/environment
+
+      - uses: ./.github/actions/coverage
         with:
           tests-folder: src/tests
           source-folder: src/{{ project_name }}
@@ -46,10 +55,13 @@ jobs:
   jupyter:
     runs-on: "ubuntu-latest"
     steps:
-      - name: "Build the virtual environment"
-        uses: cvxgrp/.github/actions/environment@v2.2.5
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-      - uses: cvxgrp/.github/actions/jupyter@v2.2.5
+      - name: "Build the virtual environment"
+        uses: ./.github/actions/environment
+
+      - uses: ./.github/actions/jupyter
 
   book:
     runs-on: "ubuntu-latest"
@@ -59,6 +71,9 @@ jobs:
       contents: write
 
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
       - name: Upload the book
         if: ${% raw %}{{ env.ACT != 'true' }}{% endraw %}  # Skip if running with 'act'
-        uses: cvxgrp/.github/actions/book@v2.2.5
+        uses: ./.github/actions/book

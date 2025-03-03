@@ -11,17 +11,20 @@ jobs:
   deptry:
     runs-on: ubuntu-latest
     steps:
-      - name: "Build the virtual environment"
-        uses: cvxgrp/.github/actions/environment@v2.2.5
+      - name: Checkout Repository
+        uses: actions/checkout@v
 
-      - uses: cvxgrp/.github/actions/deptry@v2.2.5
+      - name: "Build the virtual environment"
+        uses: ./.github/actions/environment
+
+      - uses: ./.github/actions/deptry
         with:
           source-folder: src/{{ project_name }}
 
   pre-commit:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout [${{ github.repository }}]
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
       - uses: pre-commit/action@v3.0.1

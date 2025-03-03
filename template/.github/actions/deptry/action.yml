@@ -1,0 +1,23 @@
+name: 'Dependency Check'
+description: 'Run deptry to check for dependency issues'
+
+inputs:
+  source-folder:
+    description: 'Source folder to analyze'
+    required: false
+    default: 'cvx'
+
+runs:
+  using: "composite"
+  steps:
+    - name: Update pip
+      shell: bash
+      run: |
+        # Ensure pip is installed and up-to-date
+        python -m ensurepip --upgrade
+
+    - name: Install and run deptry
+      shell: bash
+      run: |
+        python -m pip install --no-cache-dir deptry
+        deptry ${{ inputs.source-folder }}
