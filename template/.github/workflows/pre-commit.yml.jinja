@@ -14,7 +14,7 @@ jobs:
       - name: "Build the virtual environment"
         uses: cvxgrp/.github/actions/environment@v2.2.5
 
-      - uses: cvxgrp/.github/actions/deptry@v2.2.5
+      - uses: ./.github/actions/deptry
         with:
           source-folder: src/{{ project_name }}
 
