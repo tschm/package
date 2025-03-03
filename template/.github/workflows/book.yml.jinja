@@ -59,6 +59,9 @@ jobs:
       contents: write
 
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
       - name: Upload the book
         if: ${% raw %}{{ env.ACT != 'true' }}{% endraw %}  # Skip if running with 'act'
-        uses: cvxgrp/.github/actions/book@v2.2.5
+        uses: ./.github/actions/book
