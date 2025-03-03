@@ -1,17 +1,17 @@
-name: Bump Version
-
+name: Bump version
 on:
   workflow_dispatch
 
 permissions:
   contents: write
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout [${{ github.repository }}]
+        uses: actions/checkout@v4
+
       - name: Generate Tag
-        uses: cvxgrp/.github/actions/tag@v2.2.5
+        uses: ./.github/actions/tag
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          build_package: 'false'
