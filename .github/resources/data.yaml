@@ -1,3 +1,7 @@
 project_name: maffay
 username: tschm
 repository: https://github.com/tschm/maffay
+use_devcontainer: false
+use_latex: true
+use_dependabot: false
+use_renovate: false
