@@ -63,3 +63,4 @@ runs:
         else
             uv sync --all-extras --dev  # Install all dependencies (including dev dependencies)
         fi
+        uv pip install pip
