@@ -32,7 +32,7 @@ jobs:
       - name: "Build the virtual environment"
         uses: ./.github/actions/environment
 
-      - uses: ./.github/actions/pdoc
+      - uses: tschm/cradle/actions/pdoc@main
         with:
           source-folder: src/{{ project_name }}
 
@@ -76,4 +76,4 @@ jobs:
 
       - name: Upload the book
         if: ${% raw %}{{ env.ACT != 'true' }}{% endraw %}  # Skip if running with 'act'
-        uses: ./.github/actions/book
+        uses: tschm/cradle/actions/book@main

@@ -17,7 +17,7 @@ jobs:
       - name: "Build the virtual environment"
         uses: ./.github/actions/environment
 
-      - uses: ./.github/actions/deptry
+      - uses: tschm/cradle/actions/deptry@main
         with:
           source-folder: src/{{ project_name }}
 
