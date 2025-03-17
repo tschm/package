@@ -19,7 +19,7 @@ jobs:
       - name: "Build the virtual environment"
         uses: ./.github/actions/environment
 
-      - uses: ./.github/actions/marimo
+      - uses: tschm/cradle/actions/marimo@main
         with:
           source_folder: book/marimo
 
