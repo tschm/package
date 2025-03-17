@@ -13,7 +13,7 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Test ci flow
+      - name: Test book flow
         uses: tschm/cradle/actions/flow@main
         with:
-          workflow: ci.yml
+          workflow: book.yml
