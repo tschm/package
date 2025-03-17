@@ -46,7 +46,7 @@ jobs:
       - name: "Build the virtual environment"
         uses: ./.github/actions/environment
 
-      - uses: ./.github/actions/coverage
+      - uses: tschm/cradle/actions/coverage@main
         with:
           tests-folder: src/tests
           source-folder: src/{{ project_name }}
@@ -61,7 +61,7 @@ jobs:
       - name: "Build the virtual environment"
         uses: ./.github/actions/environment
 
-      - uses: ./.github/actions/jupyter
+      - uses: tschm/cradle/actions/jupyter@main
 
   book:
     runs-on: "ubuntu-latest"
