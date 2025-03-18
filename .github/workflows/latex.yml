@@ -4,7 +4,7 @@ on:
   push
 
 jobs:
-  test-template-workflows:
+  compile:
     runs-on: ubuntu-latest
 
     steps:

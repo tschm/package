@@ -1,10 +1,10 @@
-name: CI
+name: BOOK
 
 on:
   push
 
 jobs:
-  test-template-workflows:
+  build:
     runs-on: ubuntu-latest
 
     steps:
