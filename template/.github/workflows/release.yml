@@ -17,35 +17,15 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Generate Tag
-        uses: tschm/cradle/actions/tag@main
         id: tag_version
+        uses: tschm/cradle/actions/tag@v0.1.52
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Update version in pyproject.toml
-        shell: bash
-        run: |
-          echo "Updating version to ${{ steps.tag_version.outputs.new_tag }}"
-          sed -i "s/0.0.0/${{ steps.tag_version.outputs.new_tag }}/" pyproject.toml
-
       - name: Build package
-        shell: bash
-        run: |
-          hatch build
-
-      - name: Upload distribution artifacts
-        uses: actions/upload-artifact@v4
+        uses: tschm/cradle/actions/build@v0.1.52
         with:
-          name: dist
-          path: dist/
-          retention-days: 1
-
-      - name: Create GitHub release with artifacts
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: ${{ steps.tag_version.outputs.new_tag }}
-          generate_release_notes: true
-          files: dist/*
+          tag: ${{ steps.tag_version.outputs.new_tag }}
 
   publish:
     needs: tag
