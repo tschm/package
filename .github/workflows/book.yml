@@ -14,6 +14,6 @@ jobs:
           python-version: '3.12'
 
       - name: Test book flow
-        uses: tschm/cradle/actions/flow@v0.1.54
+        uses: tschm/cradle/actions/flow@v0.1.55
         with:
           workflow: book.yml
