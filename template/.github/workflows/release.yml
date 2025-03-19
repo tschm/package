@@ -18,12 +18,12 @@ jobs:
 
       - name: Generate Tag
         id: tag_version
-        uses: tschm/cradle/actions/tag@v0.1.52
+        uses: tschm/cradle/actions/tag@v0.1.54
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build package
-        uses: tschm/cradle/actions/build@v0.1.52
+        uses: tschm/cradle/actions/build@v0.1.54
         with:
           tag: ${{ steps.tag_version.outputs.new_tag }}
 
