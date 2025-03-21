@@ -13,9 +13,6 @@ jobs:
   marimo:
     runs-on: "ubuntu-latest"
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
       - name: "Build the virtual environment"
         uses: tschm/cradle/actions/environment@v0.1.55
 
@@ -26,9 +23,6 @@ jobs:
   pdoc:
     runs-on: "ubuntu-latest"
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
       - name: "Build the virtual environment"
         uses: tschm/cradle/actions/environment@v0.1.55
 
@@ -40,9 +34,6 @@ jobs:
   test:
     runs-on: "ubuntu-latest"
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
       - name: "Build the virtual environment"
         uses: tschm/cradle/actions/environment@v0.1.55
 
@@ -55,9 +46,6 @@ jobs:
   jupyter:
     runs-on: "ubuntu-latest"
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
       - name: "Build the virtual environment"
         uses: tschm/cradle/actions/environment@v0.1.55
 
