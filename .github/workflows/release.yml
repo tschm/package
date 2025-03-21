@@ -8,10 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout [${{ github.repository }}]
-        uses: actions/checkout@v4
-
       - name: Generate Tag
-        uses: tschm/cradle/actions/tag@v0.1.55
+        uses: tschm/cradle/actions/tag@v0.1.56
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
