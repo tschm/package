@@ -2,6 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![CI](https://github.com/tschm/package/actions/workflows/act.yml/badge.svg)](https://github.com/tschm/package/actions/workflows/act.yml)
+[![CodeFactor](https://www.codefactor.io/repository/github/tschm/package/badge)](https://www.codefactor.io/repository/github/tschm/package)
 [![Created for qCradle](https://img.shields.io/badge/Created%20for-qCradle-blue?style=flat-square)](https://github.com/cvxgrp/cradle)
 
 The package template is most useful when the final
