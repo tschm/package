@@ -17,7 +17,7 @@ jobs:
     steps:
       - name: Generate Tag
         id: tag
-        uses: tschm/cradle/actions/tag@v0.1.57
+        uses: tschm/cradle/actions/tag@v0.1.64
         with:
           github_token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 
@@ -31,7 +31,7 @@ jobs:
           echo "Tag: {% raw %}${{ needs.tagging.outputs.new_tag }}{% endraw %}"
 
       - name: "Build and publish the LaTeX document"
-        uses: tschm/cradle/actions/latex@main
+        uses: tschm/cradle/actions/latex@v0.1.64
         with:
           paper: paper/document.tex
           tag: {% raw %}${{ needs.tagging.outputs.new_tag }}{% endraw %}
