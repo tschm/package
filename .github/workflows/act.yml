@@ -14,6 +14,6 @@ jobs:
           python-version: '3.12'
 
       - name: Test ci flow
-        uses: tschm/cradle/actions/flow@v0.1.64
+        uses: tschm/cradle/actions/flow@main
         with:
           workflow: ci.yml
