@@ -23,6 +23,6 @@ jobs:
           python-version: '3.12'
 
       - name: Test pre-commit flow
-        uses: tschm/cradle/actions/flow@main
+        uses: tschm/cradle/actions/flow@v0.1.68
         with:
           workflow: pre-commit.yml
