@@ -1,19 +1,23 @@
+# Workflow to test the book documentation build process
+# This workflow runs automatically on every push to the repository
+
 name: BOOK
 
 on:
-  push
+  push  # Trigger on push events
 
 jobs:
+  # Job to build and test the book documentation
   build:
     runs-on: ubuntu-latest
 
     steps:
       - name: Launch the cradle
-        uses: tschm/cradle/actions/cradle@v0.1.68
+        uses: tschm/cradle/actions/cradle@v0.1.68  # Custom action to set up the environment
         with:
-          python-version: '3.12'
+          python-version: '3.12'  # Specify Python version to use
 
       - name: Test book flow
-        uses: tschm/cradle/actions/flow@v0.1.68
+        uses: tschm/cradle/actions/flow@v0.1.68  # Custom action to run workflow tests
         with:
-          workflow: book.yml
+          workflow: book.yml  # Test the book workflow
