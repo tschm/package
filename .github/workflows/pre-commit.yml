@@ -1,34 +1,28 @@
-# Workflow to run pre-commit checks on the codebase
-# This workflow runs automatically on every push to the repository
-
 name: pre-commit
 
 on:
-  push:  # Trigger on push events
+  push:
 
-# Only read access is needed for pre-commit checks
 permissions:
-  contents: read  # Read-only access to repository contents
+  contents: read
 
 jobs:
-  # Job to run pre-commit checks on the repository
   pre-commit:
     runs-on: ubuntu-latest
     steps:
-      - uses: tschm/cradle/actions/pre-commit@v0.1.64  # Custom action to run pre-commit checks
+      - uses: tschm/cradle/actions/pre-commit@v0.1.68
 
 
-  # Job to test pre-commit checks on the template
   pre-commit-template:
     runs-on: ubuntu-latest
 
     steps:
       - name: Launch the cradle
-        uses: tschm/cradle/actions/cradle@v0.1.64  # Custom action to set up the environment
+        uses: tschm/cradle/actions/cradle@v0.1.68
         with:
-          python-version: '3.12'  # Specify Python version to use
+          python-version: '3.12'
 
       - name: Test pre-commit flow
-        uses: tschm/cradle/actions/flow@v0.1.68  # Custom action to run workflow tests
+        uses: tschm/cradle/actions/flow@v0.1.68
         with:
-          workflow: pre-commit.yml  # Test the pre-commit workflow
+          workflow: pre-commit.yml
