@@ -1,14 +1,20 @@
+# Workflow to automatically bump the version and create a new tag
+# This workflow is manually triggered via the GitHub UI
+
 name: Bump version
 on:
-  workflow_dispatch
+  workflow_dispatch  # Manual trigger
 
+# Permissions needed for the workflow
 permissions:
-  contents: write
+  contents: write  # Allows the workflow to write to the repository (create tags)
+
 jobs:
+  # Job to generate a new version tag
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Generate Tag
-        uses: tschm/cradle/actions/tag@v0.1.64
+        uses: tschm/cradle/actions/tag@v0.1.64  # Custom action to generate a new tag
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # GitHub token for authentication
