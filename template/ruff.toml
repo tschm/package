@@ -12,7 +12,6 @@ lint.select = [
     "F",   # pyflakes
     "W",   # pycodestyle warnings
     "I",   # isort
-    "N",   # pep8-naming
     "UP",  # pyupgrade
     "B",   # flake8-bugbear
     "C4",  # flake8-comprehensions
