@@ -1,6 +1,7 @@
 import doctest
 import os
 import re
+from pathlib import Path
 
 import pytest
 
@@ -8,7 +9,7 @@ import pytest
 @pytest.fixture()
 def docstring(root_dir):
     # Read the README.md file
-    with open(root_dir / "README.md") as f:
+    with Path.open(root_dir / "README.md") as f:
         content = f.read()
 
     # Extract Python code blocks (assuming they are in triple backticks)
