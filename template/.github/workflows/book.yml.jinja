@@ -18,8 +18,6 @@ jobs:
   # Job to run Marimo notebooks for interactive documentation
   marimo:
     runs-on: ubuntu-latest  # Use the latest Ubuntu runner
-    needs: tagging
-
     steps:
         - uses: jebel-quant/marimushka@v0.1.1
           with:
