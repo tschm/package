@@ -4,7 +4,9 @@
 name: "book"
 
 on:
-- push  # Trigger on push events
+    push:
+        branches:
+            - main 
 
 
 # Permissions needed for the workflow
@@ -15,23 +17,22 @@ permissions:
 jobs:
   # Job to run Marimo notebooks for interactive documentation
   marimo:
-    runs-on: "ubuntu-latest"
+    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
+    needs: tagging
+    
     steps:
-      - name: "Build the virtual environment"
-        uses: tschm/cradle/actions/environment@v0.1.68  # Custom action to set up Python environment
-
-      - uses: tschm/cradle/actions/marimo@v0.1.68  # Custom action to run Marimo notebooks
-        with:
-          source_folder: book/marimo  # Folder containing the Marimo notebooks
+        - uses: jebel-quant/marimushka@v0.1.1
+          with:
+          notebooks: 'book/marimo'
 
   # Job to generate API documentation with pdoc
   pdoc:
     runs-on: "ubuntu-latest"
     steps:
       - name: "Build the virtual environment"
-        uses: tschm/cradle/actions/environment@v0.1.68  # Custom action to set up Python environment
+        uses: tschm/cradle/actions/environment@v0.1.72  # Custom action to set up Python environment
 
-      - uses: tschm/cradle/actions/pdoc@v0.1.68  # Custom action to generate API documentation
+      - uses: tschm/cradle/actions/pdoc@v0.1.72  # Custom action to generate API documentation
         with:
           source-folder: src/{{ project_name }}  # Source code folder to document
 
@@ -41,9 +42,9 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - name: "Build the virtual environment"
-        uses: tschm/cradle/actions/environment@v0.1.68  # Custom action to set up Python environment
+        uses: tschm/cradle/actions/environment@v0.1.72  # Custom action to set up Python environment
 
-      - uses: tschm/cradle/actions/coverage@v0.1.68  # Custom action to run tests with coverage
+      - uses: tschm/cradle/actions/coverage@v0.1.72  # Custom action to run tests with coverage
         with:
           tests-folder: src/tests  # Folder containing the tests
           source-folder: src/{{ project_name }}  # Source code folder to test
@@ -54,9 +55,9 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - name: "Build the virtual environment"
-        uses: tschm/cradle/actions/environment@v0.1.68  # Custom action to set up Python environment
+        uses: tschm/cradle/actions/environment@v0.1.72  # Custom action to set up Python environment
 
-      - uses: tschm/cradle/actions/jupyter@v0.1.68  # Custom action to run Jupyter notebooks
+      - uses: tschm/cradle/actions/jupyter@v0.1.72  # Custom action to run Jupyter notebooks
 
   # Job to build and publish the book documentation
   book:
@@ -73,4 +74,4 @@ jobs:
 
       - name: Upload the book
         if: ${% raw %}{{ env.ACT != 'true' }}{% endraw %}  # Skip if running with 'act'
-        uses: tschm/cradle/actions/book@v0.1.68  # Custom action to build and upload the book
+        uses: tschm/cradle/actions/book@v0.1.72  # Custom action to build and upload the book
