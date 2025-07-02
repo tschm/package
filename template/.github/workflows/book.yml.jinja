@@ -19,7 +19,7 @@ jobs:
   marimo:
     runs-on: ubuntu-latest  # Use the latest Ubuntu runner
     steps:
-        - uses: jebel-quant/marimushka@v0.1.1
+        - uses: jebel-quant/marimushka@v0.1.2
           with:
               notebooks: 'book/marimo'
 
@@ -48,19 +48,10 @@ jobs:
           source-folder: src/{{ project_name }}  # Source code folder to test
           coveralls: 'false'  # Don't upload to Coveralls
 
-  # Job to run Jupyter notebooks
-  jupyter:
-    runs-on: "ubuntu-latest"
-    steps:
-      - name: "Build the virtual environment"
-        uses: tschm/cradle/actions/environment@v0.1.72  # Custom action to set up Python environment
-
-      - uses: tschm/cradle/actions/jupyter@v0.1.72  # Custom action to run Jupyter notebooks
-
   # Job to build and publish the book documentation
   book:
     runs-on: "ubuntu-latest"
-    needs: [test, pdoc, jupyter, marimo]  # This job depends on all other jobs
+    needs: [test, pdoc, marimo]  # This job depends on all other jobs
 
     # Additional write permissions needed for publishing
     permissions:
@@ -72,4 +63,10 @@ jobs:
 
       - name: Upload the book
         if: ${% raw %}{{ env.ACT != 'true' }}{% endraw %}  # Skip if running with 'act'
-        uses: tschm/cradle/actions/book@v0.1.72  # Custom action to build and upload the book
+        uses: tschm/cradle/actions/book@v0.1.75  # Custom action to build and upload the book
+        with:
+          title: {{ project_name }}
+          links: |
+            {
+              "API": "./pdoc/index.html"
+            }
