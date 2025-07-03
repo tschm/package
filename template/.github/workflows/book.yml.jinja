@@ -19,7 +19,9 @@ jobs:
   marimo:
     runs-on: ubuntu-latest  # Use the latest Ubuntu runner
     steps:
-        - uses: jebel-quant/marimushka@v0.1.3
+        - name: Export notebooks
+          if: ${% raw %}{{ env.ACT != 'true' }}{% endraw %}  # Skip if running with 'act'
+          uses: jebel-quant/marimushka@v0.1.3
           with:
               notebooks: 'book/marimo'
 
