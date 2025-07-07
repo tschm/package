@@ -10,6 +10,9 @@ on:
 permissions:
   contents: read  # Read-only access to repository contents
 
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
 jobs:
   # Job to run pre-commit checks on the repository
   pre-commit:
