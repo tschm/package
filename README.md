@@ -16,7 +16,6 @@ It features include
 * 🧹 Code formatting with ruff
 * 📊 Interactive notebooks with marimo
 * 📚 Documentation generation with pdoc
-* 🐳 Support of a DevContainer
 
 ## 🛠️ Development Commands
 
