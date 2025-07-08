@@ -46,24 +46,36 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ needs.tagging.outputs.new_tag }}  # Use the tag from the previous job
 
-  # Job to publish the built package to PyPI
-  publish:
-    needs: build  # Depends on the build job to have the package ready
-    runs-on: ubuntu-latest
-    environment: release  # Use the 'release' environment for secrets
 
-    # Permissions needed for PyPI trusted publishing
-    permissions:
-      contents: read  # Only need read access to the repository
-      id-token: write  # Required for trusted publishing to PyPI
+  # Uncomment the following section if you have activated PyPI publishing for your project
+  # To activate PyPI publishing:
+  # 1. Create a PyPI account and register your project
+  # 2. Set up a GitHub environment named 'release' with PyPI publishing secrets
+  # 3. Configure trusted publishing between GitHub and PyPI
+  # For more information, see: https://docs.pypi.org/trusted-publishers/
 
-    steps:
-      # Check out the repository code
-      - name: Checkout [${{ github.repository }}]
-        uses: actions/checkout@v4
-
-      # Download the built package artifacts from the build job
-      - uses: actions/download-artifact@v4
-        with:
-          name: dist  # Artifact name containing the built packages
-          path: dist  # Local path to download to
+  #  # Job to publish the built package to PyPI
+  #  publish:
+  #    needs: build  # Depends on the build job to have the package ready
+  #    runs-on: ubuntu-latest
+  #    environment: release  # Use the 'release' environment for secrets
+  #
+  #    # Permissions needed for PyPI trusted publishing
+  #    permissions:
+  #      contents: read  # Only need read access to the repository
+  #      id-token: write  # Required for trusted publishing to PyPI
+  #
+  #    steps:
+  #      # Check out the repository code
+  #      - name: Checkout [${{ github.repository }}]
+  #        uses: actions/checkout@v4
+  #
+  #      # Download the built package artifacts from the build job
+  #      - uses: actions/download-artifact@v4
+  #        with:
+  #          name: dist  # Artifact name containing the built packages
+  #          path: dist  # Local path to download to
+  #
+  #      # Step: Publish the package to PyPI using the official PyPA action
+  #      - name: Publish to PyPI
+  #        uses: pypa/gh-action-pypi-publish@release/v1
