@@ -25,6 +25,11 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}  # Use Python version from matrix
 
-      - uses: tschm/cradle/actions/test@v0.2.1  # Custom action to run tests
-        with:
-          tests-folder: src/tests  # Folder containing the tests to run
+      - name: "Run all tests"
+        run: |
+          # Install pytest without using cache to ensure clean installation
+          uv pip install --no-cache-dir pytest
+
+          # Run pytest on the specified tests folder
+          # This will execute all test_*.py files in the directory
+          uv run pytest src/tests
