@@ -5,6 +5,8 @@
 line-length = 120
 # Target Python version
 target-version = "py312"
+# Exclude directories with Jinja template variables in their names
+exclude = ["**/{{ **/", "**/*}}/**"]
 
 [lint]
 # Available rule sets in Ruff:
@@ -56,9 +58,6 @@ target-version = "py312"
 # W: pycodestyle warnings - PEP 8 style guide warnings
 # UP: pyupgrade - Upgrade syntax for newer Python
 select = ["D", "E", "F", "I", "N", "W", "UP"]
-
-# Ignore specific rules
-ignore = ["N999"]
 
 [lint.pydocstyle]
 convention = "google"

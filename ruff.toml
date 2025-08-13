@@ -6,15 +6,9 @@ line-length = 120
 # Target Python version
 target-version = "py312"
 
-# Exclude template folder (with placeholders)
-exclude = ["template/src/**/*"]
-
 [lint]
 # Linting rules to select
-select = ["D", "E", "F", "I", "W", "UP"]
-
-# Ignore specific rules
-ignore = ["N999"]
+select = ["D", "E", "F", "I", "N", "W", "UP"]
 
 [lint.pydocstyle]
 # Use Google docstring convention
