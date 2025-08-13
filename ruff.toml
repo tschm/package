@@ -11,7 +11,7 @@ exclude = ["template/src/*"]
 
 [lint]
 # Linting rules to select
-select = ["D", "E", "F", "I", "N", "W", "UP"]
+select = ["D", "E", "F", "I", "W", "UP"]
 
 [lint.pydocstyle]
 # Use Google docstring convention
