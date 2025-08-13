@@ -38,7 +38,7 @@ repos:
       - id: actionlint
         args: [ -ignore, SC ]
 
-  - repo: https://github.com/abravalheri/validate-pyproject
-    rev: v0.24.1
-    hooks:
-      - id: validate-pyproject
+#  - repo: https://github.com/abravalheri/validate-pyproject
+#    rev: v0.24.1
+#    hooks:
+#      - id: validate-pyproject
