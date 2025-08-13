@@ -13,6 +13,9 @@ exclude = ["template/src/**/*"]
 # Linting rules to select
 select = ["D", "E", "F", "I", "W", "UP"]
 
+# Ignore specific rules
+ignore = ["N999"]
+
 [lint.pydocstyle]
 # Use Google docstring convention
 convention = "google"
