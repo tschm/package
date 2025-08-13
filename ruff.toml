@@ -7,7 +7,7 @@ line-length = 120
 target-version = "py312"
 
 # Exclude template folder (with placeholders)
-exclude = ["template/src/*"]
+exclude = ["template/src/**/*"]
 
 [lint]
 # Linting rules to select
