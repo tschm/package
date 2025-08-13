@@ -1,1 +1,24 @@
-template/ruff.toml
+# This file is part of the tschm/.config-templates repository
+# (https://github.com/tschm/.config-templates).
+#
+# Maximum line length for the entire project
+line-length = 120
+# Target Python version
+target-version = "py312"
+
+exclude = ["template/src/*"]
+
+[lint]
+select = ["D", "E", "F", "I", "N", "W", "UP"]
+
+[lint.pydocstyle]
+convention = "google"
+
+# Formatting configuration
+[format]
+# Use double quotes for strings
+quote-style = "double"
+# Use spaces for indentation
+indent-style = "space"
+# Automatically detect and use the appropriate line ending
+line-ending = "auto"
