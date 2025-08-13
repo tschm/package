@@ -9,6 +9,12 @@
 #     "pyarrow",
 # ]
 # ///
+
+"""Demo marimo notebook for slide presentations.
+
+This module demonstrates how to create interactive slide presentations with marimo.
+"""
+
 import marimo
 
 __generated_with = "0.13.11-dev14"
@@ -52,7 +58,9 @@ def _():
 
     Starting with **v0.7.2**, every marimo notebook can be shared as an interactive slide deck.
 
-    **In fact, this slide deck was made with a marimo notebook!** To present your notebook as slides, just toggle the app view and choose the slide layout in the top right. Every cell with an output becomes its own slide.
+    **In fact, this slide deck was made with a marimo notebook!** To present your notebook as slides,
+    just toggle the app view and choose the slide layout in the top right.
+    Every cell with an output becomes its own slide.
 
     Next are a couple of examples of dynamic slides.
     """
@@ -93,6 +101,15 @@ def _(exponent):
 
 @app.function
 def make_plot(x, y):
+    """Create a matplotlib plot of x vs y.
+
+    Args:
+        x: Array of x values
+        y: Array of y values
+
+    Returns:
+        Matplotlib axes object with the plot
+    """
     plt.plot(x, y)
     plt.ylim(-27, 27)
     plt.xlim(-3, 3)
