@@ -9,14 +9,14 @@ target-version = "py312"
 # Exclude template folder (with placeholders)
 exclude = ["template/src/*"]
 
+[lint]
 # Linting rules to select
 select = ["D", "E", "F", "I", "N", "W", "UP"]
 
-# Pydocstyle settings
-[pydocstyle]
+[lint.pydocstyle]
+# Use Google docstring convention
 convention = "google"
 
-# Formatting rules
 [format]
 quote-style = "double"
 indent-style = "space"
