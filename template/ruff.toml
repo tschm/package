@@ -57,6 +57,9 @@ target-version = "py312"
 # UP: pyupgrade - Upgrade syntax for newer Python
 select = ["D", "E", "F", "I", "N", "W", "UP"]
 
+# Ignore specific rules
+ignore = ["N999"]
+
 [lint.pydocstyle]
 convention = "google"
 
