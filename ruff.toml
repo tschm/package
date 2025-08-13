@@ -1,13 +1,23 @@
-[tool.ruff]
+# Ruff configuration for tschm/.config-templates
+
+# Maximum line length
 line-length = 120
+
+# Target Python version
 target-version = "py312"
+
+# Exclude template folder (with placeholders)
 exclude = ["template/src/*"]
+
+# Linting rules to select
 select = ["D", "E", "F", "I", "N", "W", "UP"]
 
-[tool.ruff.pydocstyle]
+# Pydocstyle settings
+[pydocstyle]
 convention = "google"
 
-[tool.ruff.format]
+# Formatting rules
+[format]
 quote-style = "double"
 indent-style = "space"
 line-ending = "auto"
