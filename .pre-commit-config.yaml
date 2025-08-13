@@ -11,8 +11,8 @@ repos:
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: 'v0.12.8'
     hooks:
-      #- id: ruff
-      #  args: [ --fix, --exit-non-zero-on-fix, --unsafe-fixes ]
+      - id: ruff
+        args: [ --fix, --exit-non-zero-on-fix, --unsafe-fixes ]
 
       # Run the formatter
       - id: ruff-format
