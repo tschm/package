@@ -52,6 +52,7 @@ jobs:
             out="${f%.jinja}"   # remove .jinja suffix
             echo "Rendering $f to $out"
             jinja2 "$f" values.yml > "$out"
+            rm -f $f
           done
 
       - name: Render all {{ }} folders
