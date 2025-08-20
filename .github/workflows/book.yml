@@ -46,6 +46,24 @@ jobs:
           version: 3.x
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Install jinja2-cli
+        run: |
+          pip install jinja2-cli[yaml,toml]
+
+      #- name: Render pyproject.toml from template
+      #  run: |
+      #    jinja2 templates/pyproject.toml.jinja values.yml > pyproject.toml
+
+      - name: Render all .jinja templates
+        run: |
+          for f in $(find templates -name "*.jinja"); do
+            out=$(basename "$f" .jinja)
+            jinja2 "$f" values.yml > "$out"
+          done
+
+
+
+
       - name: "Make the docs"
         run: |
           task docs:docs
