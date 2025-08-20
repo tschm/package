@@ -68,7 +68,10 @@ jobs:
         if: hashFiles('pyproject.toml') != ''
         run:
           uv sync --all-extras
-          tree
+
+      - name: "Display the folder structure"
+        run: |
+          tree -L 2
 
       - name: "Run the tests"
         run: |
