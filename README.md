@@ -16,12 +16,6 @@ It features include
 * 📊 Interactive notebooks with marimo
 * 📚 Documentation generation with pdoc
 
-## 🛠️ Development Commands
-
-```bash
-make fmt     # Install pre-commit hooks and run them on all files
-```
-
 ## 👥 Contributing
 
 * 🍴 Fork the repository
