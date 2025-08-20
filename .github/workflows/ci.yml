@@ -42,6 +42,16 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}  # Use the specified Python version
 
+      - name: Install jinja2-cli
+        run: |
+          pip install jinja2-cli[yaml,toml]
+
+      - name: Render all .jinja files
+        run: |
+          for f in $(find . -name "*.jinja"); do
+            out=$(basename "$f" .jinja)
+            jinja2 "$f" values.yml > "$out"
+          done
 
       # task is needed as we test the taskfiles
       - name: Install Task
