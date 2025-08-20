@@ -68,6 +68,7 @@ jobs:
         if: hashFiles('pyproject.toml') != ''
         run:
           uv sync --all-extras
+          tree
 
       - name: "Run the tests"
         run: |
