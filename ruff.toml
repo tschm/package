@@ -6,6 +6,7 @@ line-length = 120
 # Target Python version
 target-version = "py312"
 
+
 [lint]
 # Available rule sets in Ruff:
 # A: flake8-builtins - Check for python builtins being used as variables or parameters
@@ -71,6 +72,7 @@ line-ending = "auto"
 
 # File-specific rule exceptions
 [lint.per-file-ignores]
+
 "tests/**/*.py" = ["S101"]            # Allow assert statements in tests
 "book/marimo/*.py" = ["N803", "S101"] # Allow non-lowercase variable names (N803)
                                       # and assert statements in marimo files
