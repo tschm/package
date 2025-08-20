@@ -53,6 +53,7 @@ jobs:
             --data-file values.yml \
             --force \
             --overwrite \
+            --cleanup \
             --quiet
 
       - name: List files after rendering
