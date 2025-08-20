@@ -58,7 +58,8 @@ jobs:
       - name: Render all {{ }} folders
         run: |
           # Find all directories with {{ ... }} in their names
-          find . -type d -name '{{*}}' | while IFS= read -r dir; do
+          find . -type d -name '*{{*}}*' | while IFS= read -r dir; do
+            echo "Found folder $dir"
             # Render the folder name using jinja-cli
             new_dir=$(jinja2 <<< "$dir" values.yml)
     
