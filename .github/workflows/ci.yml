@@ -49,7 +49,7 @@ jobs:
       - name: Render all .jinja files
         run: |
           for f in $(find . -name "*.jinja"); do
-            out=$(basename "$f" .jinja)
+            out=$("$f" .jinja)
             echo "Rendering $f to $out"
             jinja2 "$f" values.yml > "$out"
           done
