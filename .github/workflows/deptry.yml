@@ -33,7 +33,7 @@ jobs:
           
           # Render the current folder in-place
           copier copy . . \
-            --data-file tests/resources/values.yml \
+            --data-file ./tests/resources/values.yml \
             --force \
             --overwrite \
             --cleanup \
