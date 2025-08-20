@@ -36,8 +36,13 @@ jobs:
             --data-file ./tests/resources/values.yml \
             --force \
             --overwrite \
-            --cleanup \
             --quiet
+          
+          # Delete all remaining .jinja files
+          find . -type f -name "*.jinja" -exec rm -f {} +
+          
+          # Delete all folders that still contain {{ ... }}
+          find . -depth -type d -name "*{{*}}*" -exec rm -rf {} +
           
           ls -R 
 
