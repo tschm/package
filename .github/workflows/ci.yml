@@ -42,11 +42,11 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}  # Use the specified Python version
 
-      - name: Install jinja2-cli
+      - name: Install copier
         run: |
           pip install copier
 
-      - name: Render all .jinja files
+      - name: Render the project
         run: |
           # Render the current folder in-place
           copier copy . . \
