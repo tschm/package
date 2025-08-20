@@ -44,30 +44,33 @@ jobs:
 
       - name: Install jinja2-cli
         run: |
-          pip install jinja2-cli[yaml,toml]
+          # pip install jinja2-cli[yaml,toml]
+          pip install copier
 
       - name: Render all .jinja files
         run: |
-          for f in $(find . -name "*.jinja"); do
-            out="${f%.jinja}"   # remove .jinja suffix
-            echo "Rendering $f to $out"
-            jinja2 "$f" values.yml > "$out"
-            rm -f $f
-          done
+          copier copy . . --data-file values.yml
+          
+          #for f in $(find . -name "*.jinja"); do
+          #  out="${f%.jinja}"   # remove .jinja suffix
+          #  echo "Rendering $f to $out"
+          #  jinja2 "$f" values.yml > "$out"
+          #  rm -f $f
+          #done
 
-      - name: Render all {{ }} folders
-        run: |
-          # Find all directories with {{ ... }} in their names
-          find . -depth -type d -name '*{{*}}*' | while IFS= read -r dir; do
-              echo "Found folder $dir"
-              # Render folder name with jinja-cli using values.yml
-              new_dir=$(jinja2 -f values.yml <<< "$dir")
+      #- name: Render all {{ }} folders
+      #  run: |
+      #    # Find all directories with {{ ... }} in their names
+      #    find . -depth -type d -name '*{{*}}*' | while IFS= read -r dir; do
+      #        echo "Found folder $dir"
+      #        # Render folder name with jinja-cli using values.yml
+      #        new_dir=$(jinja2 -f values.yml <<< "$dir")
               
-              if [ "$dir" != "$new_dir" ]; then
-                  echo "Renaming folder '$dir' → '$new_dir'"
-                  mv "$dir" "$new_dir"
-              fi
-          done
+      #        if [ "$dir" != "$new_dir" ]; then
+      #            echo "Renaming folder '$dir' → '$new_dir'"
+      #            mv "$dir" "$new_dir"
+      #        fi
+      #    done
 
       # task is needed as we test the taskfiles
       - name: Install Task
