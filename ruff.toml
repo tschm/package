@@ -6,8 +6,6 @@ line-length = 120
 # Target Python version
 target-version = "py312"
 
-# Exclude directories with Jinja template variables in their names
-exclude = ["**/[{][{]*/", "**/*[}][}]*/"]
 
 [lint]
 # Available rule sets in Ruff:
@@ -74,6 +72,7 @@ line-ending = "auto"
 
 # File-specific rule exceptions
 [lint.per-file-ignores]
-"tests/**/*.py" = ["S101"]        # Allow assert statements in tests
+
+"tests/**/*.py" = ["S101"]            # Allow assert statements in tests
 "book/marimo/*.py" = ["N803", "S101"] # Allow non-lowercase variable names (N803)
                                       # and assert statements in marimo files
