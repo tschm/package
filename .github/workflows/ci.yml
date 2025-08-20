@@ -42,12 +42,10 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}  # Use the specified Python version
 
-      - name: Install copier
-        run: |
-          pip install copier
-
       - name: Render the project
         run: |
+          pip install copier
+          
           # Render the current folder in-place
           copier copy . . \
             --data-file values.yml \
@@ -55,10 +53,8 @@ jobs:
             --overwrite \
             --cleanup \
             --quiet
-
-      - name: List files after rendering
-        run: ls -R
-
+          
+          ls -R 
 
       # task is needed as we test the taskfiles
       - name: Install Task
