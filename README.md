@@ -16,20 +16,6 @@ It features include
 * 📊 Interactive notebooks with marimo
 * 📚 Documentation generation with pdoc
 
-## 👥 Contributing
-
-* 🍴 Fork the repository
-* 🌿 Create your feature branch (git checkout -b feature/amazing-feature)
-* 💾 Commit your changes (git commit -m 'Add some amazing feature')
-* 🚢 Push to the branch (git push origin feature/amazing-feature)
-* 🔍 Open a Pull Request
-
-## 📬 Contact
-
-Thomas Schmelzer - [@tschm](https://github.com/tschm)
-
-🔗 Project Link: <https://github.com/tschm/package>
-
 ## 🚀 Getting Started
 
 Using the template is easy. 
@@ -81,20 +67,6 @@ make book
 task docs:marimo
 ```
 
-### **Package Management**
-
-Add or remove dependencies using uv:
-
-```bash
-# Main dependencies
-uv add requests
-uv remove requests
-
-# Development dependencies
-uv add pytest --dev
-uv remove pytest --dev
-```
-
 ## 📚 Documentation
 
 The project includes Marimo notebooks for interactive documentation:
@@ -108,15 +80,12 @@ Documentation is automatically built and published to GitHub Pages on push.
 
 ## 👥 Contributing
 
-1. Fork the repository
-2. Create your feature branch: `git checkout -b feature/amazing-feature`
-3. Commit your changes: `git commit -m 'Add some amazing feature'`
-4. Push to the branch: `git push origin feature/amazing-feature`
-5. Open a Pull Request
+* 🍴 Fork the repository
+* 🌿 Create your feature branch (git checkout -b feature/amazing-feature)
+* 💾 Commit your changes (git commit -m 'Add some amazing feature')
+* 🚢 Push to the branch (git push origin feature/amazing-feature)
+* 🔍 Open a Pull Request
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🔍 Project Structure
 
@@ -139,3 +108,9 @@ When first setting up the project, you'll need to register it on
 PyPI before the automated publishing workflow will succeed. 
 The GitHub Actions workflow is configured to publish from 
 the 'release' environment.
+
+## 📬 Contact
+
+Thomas Schmelzer - [@tschm](https://github.com/tschm)
+
+🔗 Project Link: <https://github.com/tschm/package>
