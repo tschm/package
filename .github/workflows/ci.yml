@@ -54,6 +54,20 @@ jobs:
             jinja2 "$f" values.yml > "$out"
           done
 
+      - name: Render all {{ }} folders
+        run: |
+          # Find all directories with {{ ... }} in their names
+          find . -type d -name '{{*}}' | while IFS= read -r dir; do
+            # Render the folder name using jinja-cli
+            new_dir=$(jinja2 <<< "$dir" values.yml)
+    
+            # Skip if the folder already exists with that name
+            if [ "$dir" != "$new_dir" ]; then
+              echo "Renaming folder $dir → $new_dir"
+              mv "$dir" "$new_dir"
+            fi
+          done
+
       # task is needed as we test the taskfiles
       - name: Install Task
         uses: arduino/setup-task@v2
