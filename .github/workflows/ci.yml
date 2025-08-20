@@ -51,8 +51,8 @@ jobs:
           # Render the current folder in-place
           copier copy . . \
             --data-file values.yml \
-            --force-if-exists \
-            --overwrite-if-exists \
+            --force \
+            --overwrite \
             --quiet
 
       - name: List files after rendering
