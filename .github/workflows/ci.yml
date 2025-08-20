@@ -50,6 +50,7 @@ jobs:
         run: |
           for f in $(find . -name "*.jinja"); do
             out=$(basename "$f" .jinja)
+            echo "Rendering $f to $out"
             jinja2 "$f" values.yml > "$out"
           done
 
@@ -67,10 +68,6 @@ jobs:
         if: hashFiles('pyproject.toml') != ''
         run:
           uv sync --all-extras
-
-        #uses: tschm/cradle/actions/environment@v0.3.06
-        #with:
-        #  python-version: ${{ matrix.python-version }}
 
       - name: "Run the tests"
         run: |
