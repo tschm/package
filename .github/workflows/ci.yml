@@ -42,6 +42,24 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}  # Use the specified Python version
 
+      - name: Render the project
+        run: |
+          pip install copier
+          
+          # Render the current folder in-place
+          copier copy . . \
+            --data-file ./tests/resources/values.yml \
+            --force \
+            --overwrite \
+            --quiet
+          
+          # Delete all remaining .jinja files
+          find . -type f -name "*.jinja" -exec rm -f {} +
+          
+          # Delete all folders that still contain {{ ... }}
+          find . -depth -type d -name "*{{*}}*" -exec rm -rf {} +
+
+          ls -R 
 
       # task is needed as we test the taskfiles
       - name: Install Task
@@ -57,10 +75,6 @@ jobs:
         if: hashFiles('pyproject.toml') != ''
         run:
           uv sync --all-extras
-
-        #uses: tschm/cradle/actions/environment@v0.3.06
-        #with:
-        #  python-version: ${{ matrix.python-version }}
 
       - name: "Run the tests"
         run: |
