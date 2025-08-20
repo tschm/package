@@ -54,7 +54,7 @@ jobs:
       #  run: |
       #    jinja2 templates/pyproject.toml.jinja values.yml > pyproject.toml
 
-      - name: Render all .jinja templates
+      - name: Render all .jinja files
         run: |
           for f in $(find templates -name "*.jinja"); do
             out=$(basename "$f" .jinja)
