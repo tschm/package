@@ -27,16 +27,19 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
-      - name: Install jinja2-cli
+      - name: Render the project
         run: |
-          pip install jinja2-cli[yaml,toml]
-
-      - name: Render all .jinja files
-        run: |
-          for f in $(find . -name "*.jinja"); do
-            out=$(basename "$f" .jinja)
-            jinja2 "$f" values.yml > "$out"
-          done
+          pip install copier
+          
+          # Render the current folder in-place
+          copier copy . . \
+            --data-file tests/resources/values.yml \
+            --force \
+            --overwrite \
+            --cleanup \
+            --quiet
+          
+          ls -R 
 
       - name: Check for pyproject.toml
         id: check_file
