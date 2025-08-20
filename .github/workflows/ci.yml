@@ -58,16 +58,15 @@ jobs:
       - name: Render all {{ }} folders
         run: |
           # Find all directories with {{ ... }} in their names
-          find . -type d -name '*{{*}}*' | while IFS= read -r dir; do
-            echo "Found folder $dir"
-            # Render the folder name using jinja-cli
-            new_dir=$(jinja2 <<< "$dir" values.yml)
-    
-            # Skip if the folder already exists with that name
-            if [ "$dir" != "$new_dir" ]; then
-              echo "Renaming folder $dir → $new_dir"
-              mv "$dir" "$new_dir"
-            fi
+          find . -depth -type d -name '*{{*}}*' | while IFS= read -r dir; do
+              echo "Found folder $dir"
+              # Render folder name with jinja-cli using values.yml
+              new_dir=$(jinja2 -f values.yml <<< "$dir")
+              
+              if [ "$dir" != "$new_dir" ]; then
+                  echo "Renaming folder '$dir' → '$new_dir'"
+                  mv "$dir" "$new_dir"
+              fi
           done
 
       # task is needed as we test the taskfiles
