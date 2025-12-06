@@ -28,8 +28,8 @@ def _iter_modules_from_path(package_path: Path):
         else:
             module_path = path.relative_to(package_path.parent).with_suffix("")
 
-        # Convert path to module name
-        module_name = str(module_path).replace("/", ".")
+        # Convert path to module name in an OS-independent way
+        module_name = ".".join(module_path.parts)
 
         try:
             yield importlib.import_module(module_name)
