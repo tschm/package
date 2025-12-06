@@ -46,8 +46,7 @@ def test_doctests(project_root: Path, monkeypatch: pytest.MonkeyPatch):
         pytest.skip(f"Source directory not found: {src_path}")
 
     # Add src to sys.path with automatic cleanup
-    monkeypatch.syspath_prepend(str(src_path.parent))
-
+    monkeypatch.syspath_prepend(str(src_path))
     total_tests = 0
     total_failures = 0
     failed_modules = []
