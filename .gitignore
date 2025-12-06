@@ -5,6 +5,8 @@
 
 __marimo__
 
+.DS_Store
+
 _tests
 _book
 _pdoc
