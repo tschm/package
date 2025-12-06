@@ -48,4 +48,4 @@ if __name__ == "__main__":
     if PYPROJECT.exists():
         print(json.dumps(supported_versions()))
     else:
-        print(["3.11","3.12","3.13","3.14"])
+        print(["3.11", "3.12", "3.13", "3.14"])
