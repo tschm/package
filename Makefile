@@ -9,5 +9,5 @@ help:  ## Display this help screen
 
 .PHONY: sync
 sync: ## clean the folder
-	@bin/sh .github/scripts/sync.sh
+	@/bin/sh .github/scripts/sync.sh
 
