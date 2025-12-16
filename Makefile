@@ -11,3 +11,7 @@ help:  ## Display this help screen
 sync: ## clean the folder
 	@/bin/sh .github/scripts/sync.sh
 
+
+.PHONY: hello
+hello:  ## run rhiza	
+	@uvx --from rhiza hello
